@@ -2,6 +2,11 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Web Guesser</title>
+    <style type="text/css">
+      body {
+        background-color: <%= background_color %>
+      }
+      </style>
   </head>
   <body>
     <form>
@@ -9,13 +14,15 @@
       <input type="submit" value="Guess!" />
     </form>
     <p>
-    Your guess was <%= guess %>. <%= message %>
+    Turns left: <%= turns %>
+    <br>
+    <br>
+      <%= "Your guess was #{guess}." if guess %> <%= message %>
     </p>
-    <% if guess == number %>
+    <% if guess == number || cheat_mode %>
       <p>
         The SECRET NUMBER is <%= number %>.
       </p>
     <% end %>
   </body>
 </html>
-
